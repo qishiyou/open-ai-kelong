@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     // Use the new v4 scrape method (not scrapeUrl)
     const scrapeResult = await app.scrape(url, {
       formats: ['screenshot'], // Request screenshot format
-      waitFor: 3000, // Wait for page to fully load
+      waitFor: 10000, // Wait for page to fully load
       timeout: 30000,
       onlyMainContent: false, // Get full page for screenshot
       actions: [
