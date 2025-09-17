@@ -11,6 +11,8 @@ import { Connector } from "@/components/shared/layout/curvy-rect";
 import HeroFlame from "@/components/shared/effects/flame/hero-flame";
 import AsciiExplosion from "@/components/shared/effects/flame/ascii-explosion";
 import { HeaderProvider } from "@/components/shared/header/HeaderContext";
+import FirecrawlIcon from "@/components/FirecrawlIcon";
+import FirecrawlLogo from "@/components/FirecrawlLogo";
 
 // Import hero section components
 import HomeHeroBackground from "@/components/app/(home)/sections/hero/Background/Background";
@@ -25,6 +27,10 @@ import HeroInputSubmitButton from "@/components/app/(home)/sections/hero-input/B
 import HeaderBrandKit from "@/components/shared/header/BrandKit/BrandKit";
 import HeaderWrapper from "@/components/shared/header/Wrapper/Wrapper";
 import HeaderDropdownWrapper from "@/components/shared/header/Dropdown/Wrapper/Wrapper";
+import HeaderNav from "@/components/shared/header/Nav/Nav";
+import HeaderGithubClient from "@/components/shared/header/Github/GithubClient";
+import HeaderToggle from "@/components/shared/header/Toggle/Toggle";
+import HeaderDropdownMobile from "@/components/shared/header/Dropdown/Mobile/Mobile";
 import GithubIcon from "@/components/shared/header/Github/_svg/GithubIcon";
 import ButtonUI from "@/components/ui/shadcn/button"
 
@@ -215,8 +221,11 @@ export default function HomePage() {
             <div className="max-w-[900px] mx-auto w-full flex justify-between items-center">
               <div className="flex gap-24 items-center">
                 <HeaderBrandKit />
+                <HeaderNav />
               </div>
               <div className="flex gap-8">
+                <HeaderGithubClient />
+                <HeaderToggle dropdownContent={<HeaderDropdownMobile />} />
                 <a
                   className="contents"
                   href="https://github.com/mendableai/open-lovable"
@@ -751,6 +760,92 @@ export default function HomePage() {
             )}
           </section>
         )}
+
+        {/* Footer Section */}
+        <footer className="bg-white border-t border-gray-200 mt-32">
+          <div className="container mx-auto px-16 py-24">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-16">
+              {/* Logo and Description */}
+              <div className="md:col-span-2">
+                <div className="flex items-center gap-2 mb-12">
+                  <FirecrawlIcon className="w-7 h-7 text-accent-black" />
+                  <FirecrawlLogo />
+                </div>
+                <p className="text-body-medium text-black-alpha-64 mb-16">
+                  Re-imagine any website in seconds with AI-powered website builder.
+                </p>
+                <div className="flex gap-12">
+                  <a
+                    href="https://github.com/mendableai/open-lovable"
+                    target="_blank"
+                    className="text-black-alpha-56 hover:text-heat-100 transition-colors"
+                  >
+                    <GithubIcon />
+                  </a>
+                </div>
+              </div>
+              
+              {/* Product Links */}
+              <div>
+                <h3 className="text-label-medium text-accent-black mb-12">Product</h3>
+                <ul className="space-y-8">
+                  <li>
+                    <a href="/playground" className="text-body-medium text-black-alpha-64 hover:text-heat-100 transition-colors">
+                      Playground
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://docs.firecrawl.dev" className="text-body-medium text-black-alpha-64 hover:text-heat-100 transition-colors">
+                      Documentation
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/pricing" className="text-body-medium text-black-alpha-64 hover:text-heat-100 transition-colors">
+                      Pricing
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Resources Links */}
+              <div>
+                <h3 className="text-label-medium text-accent-black mb-12">Resources</h3>
+                <ul className="space-y-8">
+                  <li>
+                    <a href="/blog" className="text-body-medium text-black-alpha-64 hover:text-heat-100 transition-colors">
+                      Blog
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/changelog" className="text-body-medium text-black-alpha-64 hover:text-heat-100 transition-colors">
+                      Changelog
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/firecrawl/firecrawl" className="text-body-medium text-black-alpha-64 hover:text-heat-100 transition-colors">
+                      Open Source
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            {/* Bottom Bar */}
+            <div className="border-t border-gray-200 mt-24 pt-24 flex flex-col md:flex-row justify-between items-center">
+              <p className="text-body-small text-black-alpha-48">
+                © 2024 Open Lovable. Built with Firecrawl.
+              </p>
+              <div className="flex gap-16 mt-12 md:mt-0">
+                <a href="/privacy" className="text-body-small text-black-alpha-48 hover:text-heat-100 transition-colors">
+                  Privacy
+                </a>
+                <a href="/terms" className="text-body-small text-black-alpha-48 hover:text-heat-100 transition-colors">
+                  Terms
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
 
       </div>
 
